@@ -24,7 +24,7 @@ const StyleCampoTexto = styled.div`
         top: 10px;
         right: 10px;
         height: 32px;
-        width: 32px;
+        max-width: 32px;
     }
 `;
 

@@ -2,7 +2,7 @@ import styled from "styled-components";
 import CampoTexto from "../CampoTexto/Index";
 
 const HeaderStyle = styled.header`
-    padding: 60px 24px;
+    padding: 30px 24px;
     display: flex;
     justify-content: space-between;
     img{
