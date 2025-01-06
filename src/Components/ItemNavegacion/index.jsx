@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const ItemNavegacionStyles = styled.li`
     font-size: 24px;
-    margin: 0 0 30px 16px;
+    margin-bottom: 30px;
     line-height: 28px;
     display: flex;
     align-items: center;
