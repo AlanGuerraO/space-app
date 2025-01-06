@@ -4,6 +4,7 @@ import Header from "./Components/Header/Index"
 import MenuLateral from "./Components/MenuLateral"
 import Banner from "./Components/Banner"
 import banner from "./assets/banner.png"
+import Galeria from "./Components/Galeria"
 
 const FondoGradiente = styled.div`
   background: linear-gradient(175deg, #041833 4.16%, #04244F 48%, #154580 96.76%);
@@ -21,6 +22,12 @@ const MainContainer = styled.main`
   gap: 24px;
 `;
 
+const ContenidoGaleria = styled.section`
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+`;
+
 function App() {
   return (
     <>
@@ -30,7 +37,10 @@ function App() {
           <Header />
           <MainContainer>
             <MenuLateral />
-            <Banner fondo={banner} titulo="La galería más completa del espacio"/>
+            <ContenidoGaleria>
+              <Banner fondo={banner} titulo="La galería más completa del espacio"/>
+              <Galeria />
+            </ContenidoGaleria>
           </MainContainer>
         </AppContainer>
       </FondoGradiente>
