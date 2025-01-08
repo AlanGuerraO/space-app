@@ -1,34 +1,32 @@
-import styled from "styled-components";
+import { styled } from "styled-components"
 
-const FigureStyles = styled.figure`
-    background-image: ${props => `url(${props.$fondo})`};
-    background-size: cover;
+const FigureEstilizada = styled.figure`
+    background-image: ${props => `url(${props.$backgroundImage})`};
+    flex-grow: 1;
     background-repeat: no-repeat;
     display: flex;
-    flex-grow: 1;
     align-items: center;
-    max-height: 328px;
     min-height: 328px;
     margin: 0;
     border-radius: 20px;
     max-width: 100%;
+    background-size: cover;
+`
 
-    h1 {
-        font-weight: 400;
-        font-size: 40px;
-        line-height: 48px;
-        color: #ffffff;
-        max-width: 300px;
-        padding: 0 64px;
-    }
-`;
+const TituloEstilizado = styled.h1`
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 48px;
+    color: #FFFFFF;
+    max-width: 300px;
+    padding: 0 64px;
+`
 
-const Banner = ({ fondo, titulo }) => {
+const Banner = ({texto, backgroundImage}) => {
     return (
-        <FigureStyles $fondo={fondo}>
-            <h1>{titulo}</h1>
-        </FigureStyles>
-    );
-};
+    <FigureEstilizada $backgroundImage={backgroundImage}>
+        <TituloEstilizado>{texto}</TituloEstilizado>
+    </FigureEstilizada>)
+}
 
-export default Banner;
+export default Banner
