@@ -27,24 +27,21 @@ const DialogEstilizado = styled.dialog`
         }
     }
 `
-const ModalZoom = ({ foto }) => {
-
-    return <>
-        {foto && <>
-            <Overlay />
-            <DialogEstilizado open={!!foto}>
-                <Imagen foto={foto} expandida={true} />
-                <form method="dialog">
-                    <BotonIcono formMethod="dialog">
-                        <img src="/iconos/cerrar.png" alt="Icono de cerrar" />
-                    </BotonIcono>
-                </form>
-            </DialogEstilizado>
-        </>}
-
-    </>
-
-
+const ModalZoom = ({ foto, alCerrar, alAlternarFavorito }) => {
+    return (
+        <>
+            {foto && <>
+                <Overlay /> 
+                <DialogEstilizado open={!!foto} onClose={alCerrar}>
+                    <Imagen foto={foto} expandida={true} alAlternarFavorito={alAlternarFavorito}/>
+                    <form method="dialog">
+                        <BotonIcono formMethod="dialog">
+                            <img src="/iconos/cerrar.png" alt="Icono de cerrar" />
+                        </BotonIcono>
+                    </form>
+                </DialogEstilizado>
+            </>}
+        </>
+    )
 }
-
 export default ModalZoom

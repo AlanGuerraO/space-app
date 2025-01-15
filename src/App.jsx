@@ -7,7 +7,7 @@ import banner from "./assets/banner.png";
 import Galeria from "./components/Galeria";
 import fotos from "./fotos.json";
 import { useState } from "react";
-import ModalZoom from "./components/ModalZoom";
+import ModalZoom from "./Components/ModalZoom";
 
 const FondoGradiente = styled.div`
     background: linear-gradient(
@@ -38,6 +38,22 @@ const App = () => {
     const [fotosDeGaleria, setFotosDeGaleria] = useState(fotos);
     const [fotoSeleccionada, setFotoSeleccionada] = useState(null);
 
+    const alAlternarFavorito = (foto) => {
+        if (foto.id === fotoSeleccionada?.id){
+            setFotoSeleccionada({
+                ...fotoSeleccionada,
+                favorita: !foto.favorita
+            })
+        }
+
+        setFotosDeGaleria(fotosDeGaleria.map(fotoDeGaleria => {
+            return {
+                ...fotoDeGaleria,
+                favorita: fotoDeGaleria.id === foto.id ? !fotoDeGaleria.favorita : fotoDeGaleria.favorita
+            }
+        }))
+    };
+
     return (
         <>
             <FondoGradiente>
@@ -52,6 +68,7 @@ const App = () => {
                                 backgroundImage={banner}
                             />
                             <Galeria
+                                alAlternarFavorito={alAlternarFavorito}
                                 alSeleccionarFoto={(foto) =>
                                     setFotoSeleccionada(foto)
                                 }
@@ -60,7 +77,11 @@ const App = () => {
                         </ContenidoGaleria>
                     </MainContainer>
                 </AppContainer>
-                <ModalZoom foto={fotoSeleccionada} />
+                <ModalZoom 
+                    foto={fotoSeleccionada} 
+                    alCerrar={() => setFotoSeleccionada(null)} 
+                    alAlternarFavorito={alAlternarFavorito}
+                />
             </FondoGradiente>
         </>
     );
