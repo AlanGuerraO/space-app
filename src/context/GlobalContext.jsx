@@ -5,7 +5,8 @@ export const GlobalContext = createContext();
 const initialState = {
     consulta: '',
     fotosDeGaleria: [],
-    fotoSeleccionada: null
+    fotoSeleccionada: null,
+    modalAbierto: false,
 };
 
 const reducer = (state, action) => {
@@ -15,7 +16,9 @@ const reducer = (state, action) => {
         case 'SET_FOTOS_DE_GALERIA':
             return {...state, fotosDeGaleria: action.payload};
         case 'SET_FOTO_SELECCIONADA':
-            return {...state, fotoSeleccionada: action.payload};
+            return {...state, fotoSeleccionada: action.payload,
+                modalAbierto: action.payload != null ? true : false
+            };
         case 'ALTERNAR_FAVORITO':
 
             const FOTOS_DE_GALERIA = state.fotosDeGaleria.map(fotoDeGaleria => {
@@ -55,7 +58,7 @@ const GlobalContextProvider = ({ children }) => {
             dispatch({type:"SET_FOTOS_DE_GALERIA", payload: data});
         }
 
-        setTimeout(() => getData(), 5000);
+        setTimeout(() => getData(), 1000);
     }, [])
 
     return (
