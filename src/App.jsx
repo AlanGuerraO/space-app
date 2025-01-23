@@ -5,10 +5,8 @@ import BarraLateral from "./components/BarraLateral"
 import Banner from "./components/Banner"
 import banner from "./assets/banner.png"
 import Galeria from "./components/Galeria"
-import { useEffect, useState } from "react"
 import ModalZoom from "./components/ModalZoom"
 import Pie from "./components/Pie"
-import Cargando from "./components/Cargando"
 import GlobalContextProvider from "./context/GlobalContext"
 
 const FondoGradiente = styled.div`
@@ -50,7 +48,6 @@ const App = () => {
           <ModalZoom />
           <Pie />
         </GlobalContextProvider>
-
       </FondoGradiente>
     </>
   )
