@@ -32,13 +32,18 @@ function Pie() {
         <PieEstilizado>
             <IconoContainer>
                 <li>
-                    <a href="https://github.com/AlanGuerraO" target="_blank">
-                        <img src="/img/redes/github.png" alt="" />
+                    <a href="#">
+                        <img src="/img/redes/facebook.svg" alt="" />
                     </a>
                 </li>
                 <li>
-                    <a href="https://www.linkedin.com/in/alan-guerra-dwf/" target="_blank">
-                        <img src="/img/redes/linkedin.png" alt="" />
+                    <a href="#">
+                        <img src="/img/redes/twitter.svg" alt="" />
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="/img/redes/instagram.svg" alt="" />
                     </a>
                 </li>
             </IconoContainer>
