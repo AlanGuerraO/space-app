@@ -1,7 +1,6 @@
 import { styled } from "styled-components"
 import Titulo from "../../Titulo"
-
-import fotos from './fotos-populares.json'
+import { useEffect, useState } from "react";
 
 const ColumnaFotos = styled.section`
     display: flex;
@@ -28,6 +27,17 @@ const Boton = styled.button`
 `;
 
 const Populares = () => {
+    const [fotos, setFotos] = useState([]);
+
+    useEffect(() => {
+        const getData = async () => {
+            const res = await fetch('http://localhost:3000/populares');
+            const data = await res.json();
+            setFotos([...data]);
+        }
+        getData();
+    } , [])
+
     return (
         <section>
             <Titulo $align='center'>Populares</Titulo>
